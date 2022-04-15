@@ -1,0 +1,2 @@
+# An-Innovative-Quadratic-interpolation-Salp-Swarm
+Based on quadratic interpolation and a local escape operator (LEO), a Salp Swarm Optimization algorithm (QSSALEO) is proposed to address these issues. Quadratic interpolation around the best search agent aids QSSALEO's exploitation ability and solution accuracy, whereas the local escaping operator employs random operators to escape local optima. These tactics complement one another to help SSA promote convergence performance. Furthermore, the algorithm strives for a balance of exploitation and exploration. 
