@@ -1,4 +1,4 @@
-# Social Ski-Driver (SSD) optimization algorithm
+# An Innovative Quadratic interpolation Salp Swarm-Based local escape operator (QSSALEO) optimization algorithm
 # More details about the algorithm are in [please cite the original paper ]
 # Mohammed Qaraad , Souad Amjad, Nazar K. Hussein , and Mostafa A. Elhosseini, "An Innovative Quadratic interpolation Salp Swarm-Based local escape operator for Large-Scale Global Optimization Problems and Feature Selection"
 # Neural Computing and Applications,  2022
@@ -13,11 +13,7 @@ import time
 
 def QSSALEO(objf, lb, ub, dim, N, Max_iteration):
 
-    # Max_iteration=1000
-    # lb=-100
-    # ub=100
-    # dim=30
-    #N = 50  # Number of search agents
+
     if not isinstance(lb, list):
         lb = [lb] * dim
     if not isinstance(ub, list):
@@ -62,8 +58,8 @@ def QSSALEO(objf, lb, ub, dim, N, Max_iteration):
         # Flame_no=round(N-Iteration*((N-1)/Max_iteration));
 
         c1 = 2 * math.exp(-((4 * Iteration / Max_iteration) ** 2))
-        beta = 0.2+(1.2-0.2)*(1-(Iteration/Max_iteration)**3)**2    #                       % Eq.(14.2)
-        alpha = abs(beta*math.sin((3*math.pi/2+math.sin(3*math.pi/2*beta))));  #            % Eq.(14.1)
+        beta = 0.2+(1.2-0.2)*(1-(Iteration/Max_iteration)**3)**2    #                       
+        alpha = abs(beta*math.sin((3*math.pi/2+math.sin(3*math.pi/2*beta))));  #            
         
         # Eq. (3.2) in the paper
 
@@ -114,7 +110,7 @@ def QSSALEO(objf, lb, ub, dim, N, Max_iteration):
             f1 = -1+(1-(-1))*random.random()
             f2 = -1+(1-(-1))*random.random();         
             ro = alpha*(2*random.random()-1);
-            Xk = numpy.random.uniform(lb,ub,dim)    #;%lb+(ub-lb).*rand(1,nV);       % Eq.(28.8)
+            Xk = numpy.random.uniform(lb,ub,dim)    #;%lb+(ub-lb).*rand(1,nV);       
             #X = numpy.zeros((2, dim))
             Xnew = numpy.zeros((1,dim))
 #             for m in range(dim):
@@ -150,28 +146,18 @@ def QSSALEO(objf, lb, ub, dim, N, Max_iteration):
                 FoodFitness = SalpFitness[i]            
             
 
-#         for i in range(0, N):
 
-#             # Check if salps go out of the search spaceand bring it back
-#             for j in range(dim):
-#                 SalpPositions[i, j] = numpy.clip(SalpPositions[i, j], lb[j], ub[j])
-
-#             SalpFitness[i] = objf(SalpPositions[i, :])
-
-#             if SalpFitness[i] < FoodFitness:
-#                 FoodPosition = numpy.copy(SalpPositions[i, :])
-#                 FoodFitness = SalpFitness[i]
 
         # Display best fitness along the iteration
-#        if Iteration % 1 == 0:
-#             print(
-#                 [
-#                     "At iteration "
-#                     + str(Iteration)
-#                     + " the best fitness is "
-#                     + str(FoodFitness)
-#                 ]
-#             )
+       if Iteration % 1 == 0:
+            print(
+                [
+                    "At iteration "
+                    + str(Iteration)
+                    + " the best fitness is "
+                    + str(FoodFitness)
+                ]
+            )
 
         Convergence_curve[Iteration] = FoodFitness
 
